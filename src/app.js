@@ -8,8 +8,10 @@ import { recipeRoute } from './routes/index.js'
 // Cargamos las variables de entorno
 dotenv.config()
 
+// Creamos la aplicación express
 const app = express()
 
+// configuramos cors
 app.use(cors())
 // configuramos express para que entienda las peticiones con formato JSON 
 app.use(express.json())
@@ -18,6 +20,7 @@ app.use(express.json())
 
 // Rutas de recetas
 app.use('/api', recipeRoute)
+
 
 const PORT = process.env.PORT || 3000
 
