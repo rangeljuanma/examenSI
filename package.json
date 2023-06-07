@@ -1,0 +1,32 @@
+{
+  "name": "examen2223",
+  "version": "1.0.0",
+  "description": "Examen Proyecto Integrador 2223. Ordinaria",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "build": "npm install",
+    "serve": "node ./src/app.js",
+    "dev": "node src/app.js",
+    "prod": "node ./src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "nodemon": "^2.0.22",
+    "prettier": "2.8.8"
+  }
+}
