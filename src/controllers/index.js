@@ -1,3 +1,4 @@
 import recipeController from './recipes.js'
+import movieController from './movies.js'
 
-export { recipeController }
+export { recipeController, movieController }

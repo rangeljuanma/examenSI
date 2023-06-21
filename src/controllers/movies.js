@@ -1,5 +1,4 @@
-import { query } from 'express'
-import { modelMovie} from '../models/index.js'
+import { movieModel } from '../models/index.js'
 
 /**
  * Método para obtener todos los items
@@ -7,8 +6,8 @@ import { modelMovie} from '../models/index.js'
 const getItems = async (req, res) => {
     // const data = ['track1', 'track2']
     // res.send({ data })
-    const listaPeliculas = await modelMovie.find({})
-    console.log('peliculas obtenidas: ' + listaPeliculas.length)
+    const listaPeliculas = await movieModel.find({})
+    console.log('recetas obtenidas: ' + listaPeliculas.length)
     res.send({
         data: listaPeliculas
     })
@@ -20,7 +19,7 @@ const getItems = async (req, res) => {
 const getItemById = async (req, res) => {
     console.log(`getItemByID: param ${req.params.id}`)
     // res.send({ data })
-    const data = await modelMovie.find({ id: req.params.id })
+    const data = await movieModel.find({ id: req.params.id })
     res.send({ data })
 }
 
@@ -33,7 +32,7 @@ const getItemBySearch = async (req, res) => {
 
     var qmongo = {}
     if (query) {
-        qmongo = { "original_title": { $regex: query } }
+        qmongo = { "title": { $regex: query } }
     }
 
     if (languaje) {
@@ -47,8 +46,8 @@ const getItemBySearch = async (req, res) => {
     console.log(`getItemBySearch: query on Mongo:${qmongo}`)
     console.log(qmongo)
 
-    const data = await modelMovie.find(qmongo)
-    res.send({ movies: data })
+    const data = await movieModel.find(qmongo)
+    res.send({ movie: data })
 }
 
 /**
@@ -59,7 +58,7 @@ const createItem = async (req, res) => {
     // console.log(`recipe body: ${body}`)
     console.log(JSON.stringify(body, null, 2))
 
-    const data = await modelMovie.create(body)
+    const data = await movieModel.create(body)
 
     // console.log(body)
     res.send({ data })
